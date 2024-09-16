@@ -1,0 +1,28 @@
+def obter_nome_e_ano():
+    while True:
+        try:
+            nome = input("Digite seu nome completo: ")
+            
+            ano_nascimento = int(input("Digite o ano de nascimento (entre 1922 e 2021): "))
+
+            if ano_nascimento < 1922 or ano_nascimento > 2021:
+                raise ValueError("Ano fora do intervalo permitido. Tente novamente.")
+
+            return nome, ano_nascimento
+        except ValueError as e:
+            print(f"Erro: {e}. Por favor, insira um ano válido.")
+
+def calcular_idade(ano_nascimento):
+    ano_atual = 2022
+    return ano_atual - ano_nascimento
+
+def main():
+    nome, ano_nascimento = obter_nome_e_ano()
+
+    idade = calcular_idade(ano_nascimento)
+
+    print(f"{nome}, você completou ou completará {idade} anos em 2022.")
+
+if _name_ == "_main_":
+    main()
+    
